@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function numerosParesHasta(cantidad) {
+		
+		veces = 0;
+		i = 1;
+		nuevalinea = 0;
+		
+		document.write('<table border="1"><tr>');
+		
+		while (i < cantidad) {
+
+			if (veces == 5) {
+
+				veces = 0;
+				document.write("</tr><tr>");
+
+			}
+			
+			
+			if (i % 2 == 0){
+				
+				document.write("<td>" + i + "</td>");
+				veces ++;
+			}
+			
+			i++;
+			
+		}
+		
+		document.write("</table>");
+		
+	}
+</script>
+</head>
+<body>
+
+	<h2>Ejercicio 9</h2>
+
+	<button onclick="numerosParesHasta(101)">Sacar numeros</button>
+
+	<p id="demo"></p>
+
+
+
+</body>
+</html>

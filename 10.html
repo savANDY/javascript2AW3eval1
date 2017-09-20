@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function numerosParesHasta(cantidad) {
+		
+		var date = new Date();
+		var horaActual = date.getHours();
+		
+		if (horaActual >= 1 && horaActual < 6){
+			document.write("Kaixo gautxori");
+		} else if (horaActual >= 6 && horaActual < 12){
+			document.write("Egun on. Goiza da");
+		} else if (horaActual >= 12 && horaActual < 8){
+			document.write("Arratsalde on. Goiza pasa da");
+		} else if (horaActual >= 8 && horaActual < 12){
+			document.write("Gabon. Ilun dago");
+		}
+		alert("Bukatu da. Hurren Arte");
+		
+	}
+</script>
+</head>
+<body>
+
+	<h2>Ejercicio 10</h2>
+
+	<button onclick="numerosParesHasta(101)">Sacar mensaje segun hora</button>
+
+	<p id="demo"></p>
+
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function nombreDia() {
+
+	fecha = new Date();
+	
+    var r = confirm("Vas a tener un buen dia!");
+    if (r == true) {
+        txt = "Bien, si tu lo deseas mucho, lo tendras! Ley de la atraccion";
+    } else {
+        txt = "Eres un poco pesimista, no?";
+    }
+    document.getElementById("mensaje").innerHTML = txt;
+}
+
+</script>
+</head>
+<body>
+
+	<h2>Ejercicio 14</h2>
+
+	<script>
+        var valorname;
+    </script>
+    <form name="f1">
+        <input type="text" name="edad" onchange="document.getElementById('mensaje').innerHTML = valorname = this.value">
+    </form>
+    <br><br>
+    <ul>
+        <li id="mensaje"></li>
+    </ul>
+
+
+
+</body>
+</html>

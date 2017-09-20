@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function modifColor() {
+
+		var colorElegido = document.miForm.paleta.value;
+		var idUno = document.getElementById("primerEnlace");
+		var idDos = document.getElementById("segundoEnlace");
+		
+			idUno.style.color=colorElegido;
+			idDos.style.color=colorElegido;
+				
+	}
+</script>
+</head>
+<body>
+
+	<h2>Ejercicio 17 Paleta</h2>
+
+<form name="miForm" action="" method="get">
+	<input name="paleta" type="color" onchange="modifColor()"/>
+	</form>
+	
+	
+	<a href="#" id="primerEnlace">enlace 1</a>
+	<a href="#" id="segundoEnlace">enlace 2</a>
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Ejercicio 9</h2>
+
+<button onclick="tipoOrdenador('pc')">PC</button>
+<button onclick="tipoOrdenador('mac')">Mac</button>
+<button onclick="tipoOrdenador('nosabe')">No lo se!</button>
+
+<p id="demo"></p>
+
+<script>
+function tipoOrdenador(tipo) {
+
+if (tipo == "pc"){
+txt = "Muy bien, utilizas un PC";
+} else if (tipo == "mac") {
+txt = "Muy bien, utilizas un MAC";
+} else if (tipo == "nosabe"){
+txt = "<b>Muy mal,<br> no sabes que ordenador usas? JAJAJA</b>";
+
+}
+document.getElementById("demo").innerHTML = txt;
+}
+
+</script>
+
+</body>
+</html>

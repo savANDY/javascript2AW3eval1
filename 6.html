@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Ejercicio 6</h2>
+
+<button onclick="miFuncion()">Haz click</button>
+
+<p id="demo"></p>
+
+<script>
+function miFuncion() {
+    var txt;
+    var persona = prompt("Kaixo! Cual es tu nombre?:", "Introduce tu nombre");
+    if (persona == null || persona == "") {
+        txt = "Has cancelado el prompt.";
+    } else {
+        txt = "Kaixo " + persona + "! Como estas?";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+</body>
+</html>
