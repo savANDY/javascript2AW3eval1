@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<style type="text/css">
+html, body {
+	margin: 0.3em;
+	padding: 0.2em;
+	color: navy;
+	background: silver;
+	font-family: Sans-serif;
+}
+
+fieldset {
+	background: steelblue;
+	color: white;
+	margin-bottom: 1em;
+	padding: 1em
+}
+
+legend {
+	background: navy;
+	color: white;
+	font-weight: bolder;
+	border: 1px solid
+}
+
+.Izquierda {
+	float: left;
+	margin-right: 1em;
+	clear: left;
+	width: 44%
+}
+
+.Derecha {
+	float: right;
+	width: 44%
+}
+
+button {
+	margin-left: 1.5em;
+}
+</style>
+
+<script>
+	function checkEmail() {
+
+		var email = document.encuesta.correo;
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if (!filter.test(email.value)) {
+			alert('Formato del e-mail invalido');
+			email.focus;
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	function checkPass() {
+
+		var clave1 = document.encuesta.clave1.value;
+		var clave2 = document.encuesta.clave2.value;
+
+		if (clave1 == NULL || clave1 == '') {
+			alert("La clave no puede estar vacia!");
+			return false;
+		} else {
+
+			if (clave1 == clave2) {
+				alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo");
+				return true;
+			} else {
+				alert("Las dos claves son distintas...\nRealizaríamos las acciones del caso negativo");
+				return false;
+			}
+		}
+
+	}
+
+	function Validar() {
+
+		if (checkEmail() && checkPass()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<fieldset>
+		<legend>Datos del alumno</legend>
+		<form name="encuesta" action="http://www.google.es"
+			onsubmit="return checkPass()">
+			<div class="Izquierda">
+				<fieldset>
+					<legend>Identificacion</legend>
+					<p>
+						<label for="input">Cuenta de correo</label> <input type="text"
+							name="correo" />
+					</p>
+					<p>
+						<label for="input">Introduzca clave de acceso</label><input
+							type="password" id="clave1" />
+					</p>
+					<p>
+						<label for="input">Repita clave de acceso</label><input
+							type="password" id="clave2" />
+					</p>
+				</fieldset>
+			</div>
+			<div class="Derecha">
+				<input type="submit" value="Enviardatos" /> <input type="reset"
+					value="Restablecerdatos" />
+			</div>
+		</form>
+	</fieldset>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+</body>
+</html>
