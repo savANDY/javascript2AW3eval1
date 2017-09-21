@@ -8,114 +8,127 @@
 			document.getElementById("tituloh1").innerHTML = "ACCEDER A LAS DIFERENTES PRPPIEDADES DE UN ELEMENTO";
 		} else if (tituloElegido == "euskara") {
 			document.getElementById("tituloh1").innerHTML = "ELEMENTO DESBERDINEN PROPIETATEAK LORTU";
-		}	
+		}
 	}
-	
-	function modificarColor(){
-	
-		var colorElegido = document.getElementById("opciones").value;
-		
-		document.getElementById("test").innerHTML = colorElegido;
-		
-		var parrafos = document.getElementsByTagName("p");
-		
-		for(var i=0;i<parrafos.length;i++)
-	    {
-	        
-	        	parrafos[i].style.color = colorElegido;  
-	        
-	    }  
 
-	
-		
-		//document.getElementsById("textop").style.color="#d32e12";
-	
+	function modificarColor() {
+
+		var todosParrafos = document.getElementsByTagName("p");
+
+		for (var i = 0; i < todosParrafos.length; i++) {
+			todosParrafos[i].style.color = "black";
+		}
+
+		document.getElementById("tituloh1").style.color = "black";
+		var todosTextop = document.getElementsByName("textop");
+		for (var i = 0; i < todosTextop.length; i++) {
+			todosTextop[i].style.color = "black";
+		}
+
+		var colorElegido = document.getElementById("opciones").value;
+		//document.getElementById("test").innerHTML = colorElegido;
+
+		var queTexto = document.formu.radio.value;
+		//document.getElementById("test2").innerHTML = queTexto;
+
+		if (queTexto == "solotexto") {
+			cambioColor = document.getElementsByName("textop");
+
+			for (var i = 0; i < cambioColor.length; i++) {
+				cambioColor[i].style.color = colorElegido;
+			}
+
+		} else if (queTexto == "todos") {
+			cambioColor = document.getElementsByTagName("p");
+
+			for (var i = 0; i < cambioColor.length; i++) {
+				cambioColor[i].style.color = colorElegido;
+			}
+
+		} else if (queTexto == "colorh1") {
+			document.getElementById("tituloh1").style.color = colorElegido;
+		}
+
 	}
-	
-	function cambiarEnlaces(){
-	
+
+	function cambiarEnlaces() {
+
 		elementosChbox = document.getElementsByName("chbox");
 		enlaces = document.getElementsByTagName("li");
 		miTexto = document.getElementById("t1").value;
-		
-		for (i=0; i<elementosChbox.length; i++){
-		   if (elementosChbox[i].checked){
-		   enlaces[i].innerHTML = miTexto;
-		   }
+
+		for (i = 0; i < elementosChbox.length; i++) {
+			if (elementosChbox[i].checked) {
+				enlaces[i].innerHTML = miTexto;
+			}
 		}
-	
+
 	}
 </script>
 </head>
 <body>
-<h1 id="tituloh1">ELEMENTO DESBERDINEN PROPIETATEAK LORTU</h1>
+	<h1 id="tituloh1">ELEMENTO DESBERDINEN PROPIETATEAK LORTU</h1>
 
-<p id="test"></p>
+	<p id="test"></p>
+	<p id="test2"></p>
 
-<p name="textop">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet mi nibh, a placerat eros rutrum
-eu. Cras porta fermentum consequat. Donec placerat erat enim, et pulvinar justo congue quis. Curabitur dictum sollicitudin
-sollicitudin. </p>
-<p name="textop">Duis tincidunt, eros in interdum ultricies, quam dui fringilla diam, sed cursus massa ipsum eget leo. Integer
-viverra tempus auctor. Phasellus ullamcorper dictum nulla.</p>
-<p name="textop">Curabitur vehicula arcu sed pulvinar aliquam. Integer eu diam id lorem aliquam feugiat. Aliquam quis
-tincidunt erat, eget tempus eros. Fusce luctus ultrices tellus at commodo.</p>
-<p name="textop">Nam pulvinar leo et justo scelerisque interdum.</p>
-<ul>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-<li><a href="#"></a></li>
-</ul>
-<br>
-<fieldset>
- <p><button onClick="modificarTitulo('euskara')">TITULO EUSKERA</button>
- <button onClick="modificarTitulo('erdera')">TITULO ERDERAZ</button>
- </p>
-<form name="formu" action="#">
-<p>
- <fieldset>
- <br />
- <br />
-Elige color de fondo:
-<select id="opciones" onchange="modificarColor()">
- <option value="aa" >aukeratu</option>
- <option value="red" >Rojo</option>
- <option value="black" >Negro</option>
- <option value="green" >Verde</option>
- <option value="blue" >Azul</option>
-</select>
-Ponerlo en:
-<input type="radio" name="radio" value="todos" />
- <label for="dos">Todos los parrafos</label>
- <input type="radio" name="radio" value="solotexto" />
- <label for="uno">Los que contienen solamente texto</label>
- <input type="radio" name="radio" value="colorh1"/>
- <label for="uno">Color titulo</label>
-;&nbsp;&nbsp;&nbsp;Se aplica a:
+	<p name="textop">Lorem ipsum dolor sit amet, consectetur adipiscing
+		elit. Suspendisse laoreet mi nibh, a placerat eros rutrum eu. Cras
+		porta fermentum consequat. Donec placerat erat enim, et pulvinar justo
+		congue quis. Curabitur dictum sollicitudin sollicitudin.</p>
+	<p name="textop">Duis tincidunt, eros in interdum ultricies, quam
+		dui fringilla diam, sed cursus massa ipsum eget leo. Integer viverra
+		tempus auctor. Phasellus ullamcorper dictum nulla.</p>
+	<p name="textop">Curabitur vehicula arcu sed pulvinar aliquam.
+		Integer eu diam id lorem aliquam feugiat. Aliquam quis tincidunt erat,
+		eget tempus eros. Fusce luctus ultrices tellus at commodo.</p>
+	<p name="textop">Nam pulvinar leo et justo scelerisque interdum.</p>
+	<ul>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+		<li><a href="#"></a></li>
+	</ul>
+	<br>
+	<fieldset>
+		<p>
+			<button onClick="modificarTitulo('euskara')">TITULO EUSKERA</button>
+			<button onClick="modificarTitulo('erdera')">TITULO ERDERAZ</button>
+		</p>
+		<form name="formu" action="#">
+			<p>
+			<fieldset>
+				<br /> <br /> Elige color de fondo: <select id="opciones"
+					onchange="modificarColor()">
+					<option value="aa">aukeratu</option>
+					<option value="red">Rojo</option>
+					<option value="black">Negro</option>
+					<option value="green">Verde</option>
+					<option value="blue">Azul</option>
+				</select> Ponerlo en: <input type="radio" name="radio" value="todos"
+					onClick="modificarColor()" /> <label for="dos">Todos los
+					parrafos</label> <input type="radio" name="radio" value="solotexto"
+					onClick="modificarColor()" /> <label for="uno">Los que
+					contienen solamente texto</label> <input type="radio" name="radio"
+					value="colorh1" onClick="modificarColor()" /> <label for="uno">Color
+					titulo</label>
 
- <input type="radio" name="opciontextoletra" checked="checked" value="letra" />
- <label for="dos">Letra</label>
- <input type="radio" name="opciontextoletra" value="fondo" />
- <label for="uno">Fondo</label>
 
- </p>
- <p>
- Texto del enlace:<input type="text" name="textoenlace" id="t1" value="Idatzi" />
- Aplicar a los enlaces:
- <input type="checkbox" name="chbox" value="uno"/>
-<label for="a">uno</label>
- <input type="checkbox" name="chbox" value="dos"/>
- <label for="b">dos</label>
- <input type="checkbox" name="chbox" value="tres"/>
- <label for="a">tres</label>
- <input type="checkbox" name="chbox" value="cuatro"/>
- <label for="b">cuatro</label>
- <input type="checkbox" name="chbox" value="cinco"/>
- <label for="b">cinco</label>
- <button type="button" onclick="cambiarEnlaces()">cambiar enlaces</button>
- </p>
- </fieldset>
- </form>
+				</p>
+				<p>
+					Texto del enlace:<input type="text" name="textoenlace" id="t1"
+						value="Idatzi" /> Aplicar a los enlaces: <input type="checkbox"
+						name="chbox" value="uno" /> <label for="a">uno</label> <input
+						type="checkbox" name="chbox" value="dos" /> <label for="b">dos</label>
+					<input type="checkbox" name="chbox" value="tres" /> <label for="a">tres</label>
+					<input type="checkbox" name="chbox" value="cuatro" /> <label
+						for="b">cuatro</label> <input type="checkbox" name="chbox"
+						value="cinco" /> <label for="b">cinco</label>
+					<button type="button" onclick="cambiarEnlaces()">cambiar
+						enlaces</button>
+				</p>
+			</fieldset>
+		</form>
 </body>
 </html>
