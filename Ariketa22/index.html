@@ -44,6 +44,8 @@ button {
 }
 </style>
 
+<script src="js/tecla.js"></script>
+
 <script>
 	function checkEmail() {
 
@@ -64,44 +66,61 @@ button {
 		var clave1 = document.encuesta.clave1.value;
 		var clave2 = document.encuesta.clave2.value;
 
-		if (clave1 == NULL || clave1 == '') {
+		if (clave1.length==0) {
 			alert("La clave no puede estar vacia!");
 			return false;
 		} else {
 
 			if (clave1 == clave2) {
-				alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo");
 				return true;
 			} else {
-				alert("Las dos claves son distintas...\nRealizaríamos las acciones del caso negativo");
+				alert("Las dos claves son distintas...\nCompruebalo!");
 				return false;
 			}
 		}
 
 	}
+	
+	function comprobarCp() {
+		var cpLongitud = document.encuesta.cpostal.value.length;
+		//alert(cpLongitud);
+		if (cpLongitud != 5) {
+			alert("¡El codigo postal debe ser de 5 caracteres exactamente!");
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 	function Validar() {
 
-		if (checkEmail() && checkPass()) {
+		if (checkEmail() && checkPass() && comprobarCp()) {
 			return true;
 		} else {
 			return false;
 		}
 	}
+	
 </script>
 </head>
 <body>
 	<fieldset>
 		<legend>Datos del alumno</legend>
 		<form name="encuesta" action="http://www.google.es"
-			onsubmit="return checkPass()">
+			onsubmit="return Validar()">
 			<div class="Izquierda">
 				<fieldset>
 					<legend>Identificacion</legend>
 					<p>
 						<label for="input">Cuenta de correo</label> <input type="text"
-							name="correo" />
+							name="correo" onkeypress = "return comprobarArroba(event)"/>
 					</p>
+					
+					<p>
+						<label for="input">Código postal</label> <input type="text"
+							name="cpostal" id="cpostal" maxlength="5" onkeypress = "return TeclaPulsada(event)"/>
+					</p>
+					
 					<p>
 						<label for="input">Introduzca clave de acceso</label><input
 							type="password" id="clave1" />
@@ -110,10 +129,11 @@ button {
 						<label for="input">Repita clave de acceso</label><input
 							type="password" id="clave2" />
 					</p>
+					
 				</fieldset>
 			</div>
 			<div class="Derecha">
-				<input type="submit" value="Enviardatos" /> <input type="reset"
+				<input type="submit" value="Enviardatos" id="enviar"/> <input type="reset"
 					value="Restablecerdatos" />
 			</div>
 		</form>
